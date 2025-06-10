@@ -1,26 +1,27 @@
+import { Twitter } from 'lucide-react';
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-gray-50/50 py-16 md:py-24">
+    <footer className="border-t border-slate-800 bg-slate-900/50 backdrop-blur-sm py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 shadow-lg"></div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 shadow-lg shadow-sky-500/20"></div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
                 ProjectFlow
               </span>
             </div>
-            <p className="text-base text-muted-foreground mb-6 max-w-md">
+            <p className="text-lg text-gray-300 mb-8 max-w-md leading-relaxed">
               The all-in-one workspace for modern teams to collaborate, communicate, and create together.
             </p>
             <div className="flex gap-6">
               {/* Social Links with hover effects */}
-              <Link to='/' className="text-muted-foreground hover:text-purple-600 transition-colors duration-200">
-                <span className="sr-only">Twitter</span>
+              <Link to='/' className="p-2 rounded-full bg-slate-800 hover:bg-sky-500/10 transition-colors duration-200 group">
+                <Twitter className="w-5 h-5 text-gray-400 group-hover:text-sky-400 cursor-pointer" />
                 {/* ...existing Twitter SVG... */}
               </Link>
               {/* ...other social links... */}

@@ -28,33 +28,37 @@ const FeatureSection = ({featureRef} : { featureRef: React.RefObject<HTMLDivElem
   }, [featureRef]);
 
   return (
-    <div ref={featureRef}>
+    <div ref={featureRef} className="relative bg-slate-900/50 backdrop-blur-sm py-20">
       {/* What You Can Do */}
-      <section className="max-w-6xl mx-auto px-6 py-28 text-center">
-        <h2 className="text-5xl font-extrabold mb-10 text-sky-700">✨ What You Can Do with CollabSphere</h2>
-        <p className="text-gray-700 text-2xl mb-20 max-w-4xl mx-auto">
-          Whether you're a startup founder, a remote team, or an enterprise group — CollabSphere transforms the way you work.
-        </p>
+      <section className="max-w-7xl mx-auto px-6 py-28 text-center">
+        <div className="space-y-4 mb-32">
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent">
+            ✨ What You Can Do with ProjectFlow
+          </h2>
+          <p className="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto">
+            Whether you're a startup founder, a remote team, or an enterprise group — ProjectFlow transforms the way you work.
+          </p>
+        </div>
 
         {/* Timeline Container */}
         <div className="relative">
           {/* Vertical Line with Gradient */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1">
             {/* Background line */}
-            <div className="h-full w-full rounded-full bg-gray-200"></div>
+            <div className="h-full w-full rounded-full bg-slate-800/50"></div>
             
             {/* Animated gradient line */}
             <div 
-              className="absolute top-0 w-full rounded-full transition-all duration-300 ease-out"
+              className="absolute top-0 w-full rounded-full transition-all duration-500 ease-out"
               style={{
                 height: `${scrollProgress}%`,
-                background: 'linear-gradient(180deg, #0ea5e9 0%, #7c3aed 50%, #2563eb 100%)',
-                boxShadow: '0 0 8px rgba(14, 165, 233, 0.3)'
+                background: 'linear-gradient(180deg, #38bdf8 0%, #818cf8 50%, #2563eb 100%)',
+                boxShadow: '0 0 20px rgba(56, 189, 248, 0.5)'
               }}
             ></div>
           </div>
 
-          <div className="relative space-y-8">
+          <div className="relative space-y-24">
             {[
               {
                 icon: <MessageCircle className="w-6 h-6 text-white" />,
@@ -99,7 +103,8 @@ const FeatureSection = ({featureRef} : { featureRef: React.RefObject<HTMLDivElem
             ].map((feature, idx) => {
               const [ref, inView] = useInView({
                 triggerOnce: true,
-                threshold: 0.1,
+                threshold: 0.2,
+                rootMargin: '-50px'
               });
 
               return (
@@ -111,13 +116,13 @@ const FeatureSection = ({featureRef} : { featureRef: React.RefObject<HTMLDivElem
                   }`}
                 >
                   {/* Timeline Point */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-white rounded-full border-2 border-sky-600 shadow-lg">
-                    <div className="absolute inset-1 rounded-full bg-gradient-to-r from-sky-500 to-purple-500"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-slate-900 rounded-full border-2 border-sky-400 shadow-lg shadow-sky-400/50">
+                    <div className="absolute inset-1 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 animate-pulse"></div>
                   </div>
 
                   {/* Content Box */}
                   <div
-                    className={`w-[calc(50%-2rem)] bg-white rounded-2xl shadow-md p-6 text-left transition-all duration-700 ${
+                    className={`w-[calc(50%-4rem)] bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-8 text-left transition-all duration-700 hover:shadow-2xl hover:shadow-sky-400/10 border border-slate-700/50 ${
                       inView
                         ? 'opacity-100 translate-y-0'
                         : `opacity-0 ${
@@ -125,28 +130,33 @@ const FeatureSection = ({featureRef} : { featureRef: React.RefObject<HTMLDivElem
                           }`
                     }`}
                   >
-                    <div className="bg-sky-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <div className="bg-gradient-to-r from-sky-500 to-blue-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-sky-400/20">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                    <h3 className="text-2xl font-bold mb-3 text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 text-base leading-relaxed">
+                    <p className="text-gray-300 text-lg leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
 
                   {/* Empty div for spacing on the other side */}
-                  <div className="w-[calc(50%-2rem)]"></div>
+                  <div className="w-[calc(50%-4rem)]"></div>
                 </div>
               );
             })}
           </div>
         </div>
 
-        <p className="mt-24 text-3xl font-semibold text-sky-600">
-          One workspace. Infinite possibilities. Experience better teamwork today.
-        </p>
+        <div className="mt-32 space-y-6">
+          <p className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent">
+            One workspace. Infinite possibilities.
+          </p>
+          <p className="text-xl text-gray-300">
+            Experience better teamwork today.
+          </p>
+        </div>
       </section>
     </div>
   );
