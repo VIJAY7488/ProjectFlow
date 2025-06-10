@@ -1,9 +1,13 @@
 import React from 'react'
+import Navbar from './component/Navbar'
+import LandingPage from './page/LanndingPage'
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-5xl'>Hello ProjectFlow</h1>
+      <Navbar />
+      <LandingPage />
+      {/* Add more pages or components as needed */}
     </div>
   )
 }
