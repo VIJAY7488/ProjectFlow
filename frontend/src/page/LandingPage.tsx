@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import FeatureSection from "./FeatureSection";
 import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
 
 export default function LandingPage() {
 
@@ -17,10 +18,11 @@ export default function LandingPage() {
     <>
      <Navbar onFeaturesClcick={handleFeaturesClick} />
 
-     <div className="min-h-screen w-full bg-gradient-to-b from-white to-sky-50 text-gray-900 font-inter">
+     <div className="min-h-full w-full bg-gradient-to-b from-white to-sky-50 text-gray-900 font-inter overflow-hidden">
+      
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-28 text-center">
-        <h1 className="text-6xl md:text-8xl font-extrabold leading-tight mb-8 tracking-tight text-gray-900">
+      <section className="max-w-5xl mx-auto px-6 py-28 text-center">
+        <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-8 tracking-tight text-gray-900">
           Unify Your Team with <span className="text-sky-600">ProjectFlow</span>
         </h1>
         <p className="text-2xl md:text-3xl text-gray-700 mb-12 max-w-3xl mx-auto">
@@ -32,8 +34,8 @@ export default function LandingPage() {
       </section>
 
       <FeatureSection featureRef = {featureRef} />
+      <Footer/>
 
-      {/* Additional sections like Feature Highlights, Testimonials, Pricing, Footer to be added */}
     </div>
     </>
   );
