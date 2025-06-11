@@ -7,6 +7,12 @@ interface formData {
     fullName : string,
     email: string,
     password: string
+};
+
+interface FormErrors {
+    fullName: string;
+    email: string;
+    password: string;
 }
 
 const SignupForm = () => {
@@ -18,7 +24,7 @@ const SignupForm = () => {
 
     });
 
-    const [errors, setErrors] = useState<formData>({
+    const [errors, setErrors] = useState<FormErrors>({
         fullName: '',
         email: '',
         password: '',
@@ -35,13 +41,13 @@ const SignupForm = () => {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(!emailRegex.test(formData.email)){
-            newErrors.email = 'Please enater a valid email address';
+            newErrors.email = 'Please enter a valid email address';
             isValid = false;
         };
 
 
         if(formData.password.length<6){
-            newErrors.password = 'Password mut be at least 6 characters long';
+            newErrors.password = 'Password must be at least 6 characters long';
             isValid = false;
         };
 
@@ -56,6 +62,7 @@ const SignupForm = () => {
             console.log('Form submitted:', formData);
         }
         setFormData({fullName: '', email: '', password: ''});
+        setErrors({fullName: '', email: '', password: ''});
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -130,7 +137,7 @@ const SignupForm = () => {
 
                 <p className="mt-6 text-center text-gray-400">
                     Already have an account?{' '}
-                    <Link to="/login" className="text-sky-400 hover:text-sky-300">
+                    <Link to="/signin" onClick={() => window.scrollTo({top: 0,left: 0, behavior: 'smooth'})} className="text-sky-400 hover:text-sky-300">
                       Sign in
                     </Link>
                 </p>

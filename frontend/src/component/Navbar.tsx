@@ -45,7 +45,7 @@ const Navbar = ({onFeaturesClcick} : { onFeaturesClcick ?: () => void }) => {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Link to='/' className={`hidden md:block text-base font-medium ${isScrolled ? 'text-white' : 'text-black'} hover:text-sky-400 transition-colors duration-200`}>
+          <Link to='/signin' className={`hidden md:block text-base font-medium ${isScrolled ? 'text-white' : 'text-black'} hover:text-sky-400 transition-colors duration-200`}>
             Sign In
           </Link>
           <button className="text-base font-medium px-4 py-2 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-lg hover:opacity-90 transition-opacity duration-200" onClick={() => navigate('/signup')}>
