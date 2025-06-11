@@ -1,10 +1,15 @@
+import { Route, Routes } from 'react-router-dom'
 import LandingPage from './page/LandingPage'
+import SignupForm from './page/SignupForm'
+
 
 const App = () => {
   return (
     <div>
-      <LandingPage />
-      {/* Add more pages or components as needed */}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignupForm />} />
+      </Routes>
     </div>
   )
 }
